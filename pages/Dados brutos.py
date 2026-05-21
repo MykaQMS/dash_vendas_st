@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
-import pandas as pd # type: ignore
+import pandas as pd
 import time
+from utils import carregar_dados
 
 # --- Criando funções úteis
 @st.cache_data
@@ -13,13 +14,11 @@ def mensagem_sucesso():
     time.sleep(5)
     sucesso.empty()
 
-st.title("Dados Brutos dos Produtos")
+st.title("Dados Brutos dos Produtos 🗄️", text_alignment='center')
 
-url = 'https://labdados.com/produtos'
-
-response = requests.get(url)
-dados = pd.DataFrame.from_dict(response.json())
-dados['Data da Compra'] = pd.to_datetime(dados['Data da Compra'], format='%d/%m/%Y')
+# --- Chamando a API via função em cache com feedback visual
+with st.spinner('Conectando à base de dados...'):
+    dados = carregar_dados()
 
 # --- Criando filtros
 with st.expander('Colunas'):
