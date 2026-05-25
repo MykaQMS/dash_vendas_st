@@ -244,7 +244,8 @@ with aba3:
                                         text_auto = True,
                                         orientation='h',
                                         title = f'Top {qtd_vendedores} Vendedores por Receita',
-                                        color_discrete_sequence=[cor_primaria])
+                                        color_discrete_sequence=[cor_primaria],
+                                        labels={'sum': 'Receita (R$)', 'y': 'Vendedor'})
         fig_receita_vendedores.update_layout(yaxis={'categoryorder':'total ascending'})
         st.plotly_chart(fig_receita_vendedores)
     with col2:
@@ -257,6 +258,7 @@ with aba3:
                                         text_auto = True,
                                         orientation='h',
                                         title = f'Top {qtd_vendedores} Vendedores por Quantidade de Vendas',
-                                        color_discrete_sequence=[cor_primaria])
+                                        color_discrete_sequence=[cor_primaria],
+                                        labels={'count': 'Quantidade de Vendas', 'y': 'Vendedor'})
         fig_vendas_vendedores.update_layout(yaxis={'categoryorder':'total ascending'})
         st.plotly_chart(fig_vendas_vendedores)
