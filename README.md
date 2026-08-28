@@ -4,8 +4,10 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://streamlit.io/)
 [![Plotly](https://img.shields.io/badge/Plotly-5.18%2B-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
 [![Pandas](https://img.shields.io/badge/Pandas-ETL%20%26%20Data-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![Deploy Free](https://img.shields.io/badge/Deploy-Streamlit%20Cloud%20(R%24%200)-00C853?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/cloud)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://dashvendasmq.streamlit.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+> 🚀 **Acesse a Aplicação Online:** [Executive Sales Dashboard | Business Intelligence · Streamlit](https://dashvendasmq.streamlit.app/)
 
 > **Solução de Business Intelligence E2E (End-to-End)** para monitoramento estratégico de vendas nacionais em e-commerce. Construído em Python e Streamlit, o projeto integra consumo de API REST, engenharia de métricas comerciais, visualizações geoespaciais interativas e exportação self-service de dados brutos.
 
