@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from utils import carregar_dados, formata_numero
+from utils import carregar_dados, formata_numero, criar_mapa_scatter, exibir_grafico_plotly
 
 # --- Configuração da página
 st.set_page_config(
@@ -114,14 +114,13 @@ color_scale = ["#556DE8", "#00A86B", "#FFB703", "#E63946", "#7209B7"]
 
 # Mapa de Receita
 teto_cor = receita_estado['Preço'].quantile(0.9) if not receita_estado.empty else 1000
-fig_mapa_receita = px.scatter_mapbox(
+fig_mapa_receita = criar_mapa_scatter(
     receita_estado,
     lat='lat', lon='lon', color='Preço',
     color_continuous_scale='Plasma',
     range_color=(0, teto_cor),
     size_max=15, zoom=3,
     center={'lat': -14.2350, 'lon': -51.9253},
-    mapbox_style='open-street-map',
     hover_name='Local da compra',
     hover_data={'lat': False, 'lon': False, 'Preço': ':.2f'},
     title='<b>Distribuição Geográfica da Receita</b>'
@@ -130,13 +129,12 @@ fig_mapa_receita.update_traces(marker=dict(size=12))
 fig_mapa_receita.update_layout(margin={'r':0, 't':40, 'l':0, 'b':0})
 
 # Mapa de Volume de Vendas
-fig_mapa_vendas = px.scatter_mapbox(
+fig_mapa_vendas = criar_mapa_scatter(
     vendas_estados,
     lat='lat', lon='lon', color='Contagem',
     color_continuous_scale='Viridis',
     size_max=15, zoom=3,
     center={'lat': -14.2350, 'lon': -51.9253},
-    mapbox_style='open-street-map',
     hover_name='Local da compra',
     hover_data={'lat': False, 'lon': False},
     title='<b>Distribuição Geográfica do Volume de Vendas</b>'
@@ -214,11 +212,11 @@ with aba1:
     st.markdown("---")
     col1, col2 = st.columns(2)
     with col1:
-        st.plotly_chart(fig_mapa_receita, use_container_width=True)
-        st.plotly_chart(fig_receita_estado, use_container_width=True)
+        exibir_grafico_plotly(fig_mapa_receita)
+        exibir_grafico_plotly(fig_receita_estado)
     with col2:
-        st.plotly_chart(fig_receita_mensal, use_container_width=True)
-        st.plotly_chart(fig_receitas_categorias, use_container_width=True)
+        exibir_grafico_plotly(fig_receita_mensal)
+        exibir_grafico_plotly(fig_receitas_categorias)
 
 with aba2:
     m1, m2, m3 = st.columns(3)
@@ -232,11 +230,11 @@ with aba2:
     st.markdown("---")
     col1, col2 = st.columns(2)
     with col1:
-        st.plotly_chart(fig_mapa_vendas, use_container_width=True)
-        st.plotly_chart(fig_vendas_estado, use_container_width=True)
+        exibir_grafico_plotly(fig_mapa_vendas)
+        exibir_grafico_plotly(fig_vendas_estado)
     with col2:
-        st.plotly_chart(fig_vendas_mensal, use_container_width=True)
-        st.plotly_chart(fig_vendas_categorias, use_container_width=True)
+        exibir_grafico_plotly(fig_vendas_mensal)
+        exibir_grafico_plotly(fig_vendas_categorias)
 
 with aba3:
     qtd_vendedores = st.number_input("Top Vendedores em Destaque", min_value=2, max_value=20, value=10)
@@ -260,7 +258,7 @@ with aba3:
             labels={'sum': 'Receita (R$)', 'y': 'Vendedor'}
         )
         fig_receita_vendedores.update_layout(yaxis={'categoryorder':'total ascending'})
-        st.plotly_chart(fig_receita_vendedores, use_container_width=True)
+        exibir_grafico_plotly(fig_receita_vendedores)
     with col2:
         top_qtd = vendedores_df[['count']].sort_values('count', ascending=False).head(qtd_vendedores)
         fig_vendas_vendedores = px.bar(
@@ -270,4 +268,4 @@ with aba3:
             labels={'count': 'Unidades Vendidas', 'y': 'Vendedor'}
         )
         fig_vendas_vendedores.update_layout(yaxis={'categoryorder':'total ascending'})
-        st.plotly_chart(fig_vendas_vendedores, use_container_width=True)
+        exibir_grafico_plotly(fig_vendas_vendedores)
