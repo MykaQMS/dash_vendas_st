@@ -151,32 +151,10 @@ dash_vendas_st/
 
 ---
 
-## ☁️ Como Publicar no GitHub e Fazer Deploy Gratuito
-
-Para publicar este projeto no seu portfólio no GitHub e colocá-lo online:
-
-1. **Subir os arquivos para o GitHub:**
-   ```bash
-   git add .
-   git commit -m "feat: upgrade dashboard para nível pleno com screenshots e documentação"
-   git push origin main
-   ```
-
-2. **Deploy no Streamlit Community Cloud (Gratuito):**
-   - Acesse [share.streamlit.io](https://share.streamlit.io/) e faça login com sua conta do GitHub.
-   - Clique em **"New app"**.
-   - Selecione o repositório `dash_vendas_st`, a branch `main` e o arquivo principal `Dashboard.py`.
-   - Clique em **"Deploy!"**. Em menos de 2 minutos seu dashboard estará online com uma URL pública compartilhável!
-
----
-
 ## 👤 Autor
 
-Desenvolvido por **MykaQ** como parte do portfólio profissional de **Análise de Dados & Business Intelligence**.
+Desenvolvido por **Mykael Querido** como parte do portfólio profissional de **Análise de Dados & Business Intelligence**.
 
-- 💼 **LinkedIn**: [Seu LinkedIn](https://linkedin.com)
-- 🐙 **GitHub**: [Seu GitHub](https://github.com)
-- 📧 **E-mail**: seu-email@exemplo.com
-
----
-*Se este projeto ajudou ou inspirou você, fique à vontade para deixar uma ⭐️ no repositório!*
+- 💼 **LinkedIn**: [https://linkedin.com/in/mykael-querido](https://www.linkedin.com/in/mykaelquerido)
+- 🐙 **GitHub**: [https://github.com/MykaQMS](https://github.com/MykaQMS)
+- 📧 **E-mail**: [mykaqms@gmail.com](mykaqms@gmail.com)
